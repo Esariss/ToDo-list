@@ -39,8 +39,9 @@ class ToDo:
 завершить программу (-3- , stop , конец)
 -----------------------------
         """)
-        while True:
-            try:
+
+        try:
+            while True:
                 self.choice = input("выберите действие:")
 
                 if self.choice == "1":
@@ -54,8 +55,11 @@ class ToDo:
                     break
                 else:
                     print("извините, запрос не был понят.\n пожалуйста повторите попытку")
-            except JSONDecodeError:
-                print("в списке пока нет задач")
+        except JSONDecodeError:
+            print("в списке пока нет задач")
+
+        except KeyboardInterrupt:
+            print("\nпрограмма завершена ")
 
 test = ToDo()
 test.start_program()
